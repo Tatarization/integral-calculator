@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {AppStore} from './store';
+import AppThemeProvider from './theme/AppThemeProvider';
+import {BrowserRouter} from 'react-router-dom';
+import Routes from './routes';
+import {Layout} from './layout/Layout';
+import ErrorBoundary from './components/ErrorBoundary';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ErrorBoundary name="App">
+        <AppStore>
+          <AppThemeProvider>
+            <BrowserRouter>
+              <Layout>
+                <Routes />
+              </Layout>
+            </BrowserRouter>
+          </AppThemeProvider>
+        </AppStore>
+      </ErrorBoundary>
     </div>
   );
-}
+};
 
 export default App;
