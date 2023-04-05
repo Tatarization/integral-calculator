@@ -1,4 +1,3 @@
-import React from 'react';
 import {AppStore} from './store';
 import AppThemeProvider from './theme/AppThemeProvider';
 import {BrowserRouter} from 'react-router-dom';

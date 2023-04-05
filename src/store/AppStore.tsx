@@ -13,12 +13,9 @@ import {localStorageGet} from '../utils/localStorage';
 
 export interface AppStoreState {
   darkMode: boolean;
-  isAuthenticated: boolean;
-  currentUser?: object | undefined;
 }
 const INITIAL_APP_STATE: AppStoreState = {
-  darkMode: false, // Overridden by useMediaQuery('(prefers-color-scheme: dark)') in AppStore
-  isAuthenticated: false // Overridden in AppStore by checking auth token
+  darkMode: false // Overridden by useMediaQuery('(prefers-color-scheme: dark)') in AppStore
 };
 
 type AppContextReturningType = [AppStoreState, Dispatch<any>];
@@ -32,7 +29,6 @@ const AppStoreProvider: FunctionComponent<PropsWithChildren> = ({children}) => {
   const initialState: AppStoreState = {
     ...INITIAL_APP_STATE,
     darkMode: previousDarkMode || prefersDarkMode
-    // isAuthenticated: tokenExists,
   };
   const value: AppContextReturningType = useReducer(AppReducer, initialState);
 

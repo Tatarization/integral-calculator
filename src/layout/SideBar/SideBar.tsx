@@ -9,10 +9,10 @@ import {
   Tooltip
 } from '@mui/material';
 import {useAppStore} from '../../store';
-import {SIDEBAR_WIDTH, TOPBAR_DESKTOP_HEIGHT} from '../config';
 import {LinkToPage} from '../../utils/types';
-import {SideBarNavList} from './SideBarNavList';
 import {useEventSwitchDarkMode} from '../../hooks/useEventSwitchDarkMode';
+import {SideBarNavList} from './SideBarNavList';
+import {SIDEBAR_WIDTH, TOPBAR_DESKTOP_HEIGHT} from '../config';
 
 interface Props extends Pick<DrawerProps, 'anchor' | 'className' | 'open' | 'variant' | 'onClose'> {
   items: Array<LinkToPage>;
@@ -51,7 +51,6 @@ export const SideBar: FunctionComponent<Props> = ({
           height: variant === 'temporary' ? '100%' : `calc(100% - ${TOPBAR_DESKTOP_HEIGHT})`
         }
       }}
-      onClose={onClose}
     >
       <Stack
         sx={{
