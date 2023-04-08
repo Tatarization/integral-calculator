@@ -7,7 +7,6 @@ import {
   ComponentType,
   PropsWithChildren
 } from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import AppReducer from './AppReducer';
 import {localStorageGet} from '../utils/localStorage';
 
@@ -15,20 +14,19 @@ export interface AppStoreState {
   darkMode: boolean;
 }
 const INITIAL_APP_STATE: AppStoreState = {
-  darkMode: false // Overridden by useMediaQuery('(prefers-color-scheme: dark)') in AppStore
+  darkMode: true
 };
 
 type AppContextReturningType = [AppStoreState, Dispatch<any>];
 const AppContext = createContext<AppContextReturningType>([INITIAL_APP_STATE, () => null]);
 
 const AppStoreProvider: FunctionComponent<PropsWithChildren> = ({children}) => {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const previousDarkMode = Boolean(localStorageGet('darkMode'));
   // const tokenExists = Boolean(loadToken());
 
   const initialState: AppStoreState = {
     ...INITIAL_APP_STATE,
-    darkMode: previousDarkMode || prefersDarkMode
+    darkMode: previousDarkMode
   };
   const value: AppContextReturningType = useReducer(AppReducer, initialState);
 

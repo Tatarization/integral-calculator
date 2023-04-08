@@ -1,8 +1,11 @@
 import {Node} from '../parser/types';
 import {ALLOWED_ARGS} from '../parser/consts';
 
-export const convertToPlot = (node: Node): string => {
-  const convert = (node: Node): string => {
+export const convertToPlot = (node: Node | null): string => {
+  const convert = (node: Node | null): string => {
+    if (node === null) {
+      return '';
+    }
     switch (node.operation) {
       case '':
         return node.value.toString();

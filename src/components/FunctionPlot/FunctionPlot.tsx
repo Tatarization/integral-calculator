@@ -3,24 +3,25 @@ import functionPlot from 'function-plot';
 
 interface FunctionGraphInterface {
   funcString?: string;
+  derivativeString?: string;
 }
 
-export const FunctionPlot: FC<FunctionGraphInterface> = ({funcString}) => {
+export const FunctionPlot: FC<FunctionGraphInterface> = ({funcString, derivativeString}) => {
   const graphRef = useRef(null);
 
   useEffect(() => {
     functionPlot({
+      height: 900,
+      width: 1500,
+      title: 'График функции',
       target: graphRef.current!,
       yAxis: {domain: [-9, 9]},
-      // tip: {
-      //   renderer: function () {}
-      // },
       grid: true,
       data: [
         {
           fn: funcString,
           derivative: {
-            fn: '2 * x',
+            fn: derivativeString,
             updateOnMouseMove: true
           },
           graphType: 'polyline'
