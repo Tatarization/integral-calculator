@@ -287,7 +287,7 @@ export const convertToFunc = (expression: string): Node => {
       }
     }
   };
-  return convert(expression.replaceAll(' ', ''));
+  return convert(expression.replace(/\s/g, ''));
 };
 
 export const calculate = (node: Node, args: Map<string, number>): number => {

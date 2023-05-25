@@ -24,12 +24,12 @@ export const convertToMathJax = (node: Node): string => {
         return `${convertToMath(node.left!)} + ${convertToMath(node.right!)}`;
       case '-': {
         if (node.left?.operation === '' && node.left.value === 0) {
-          if (needBracketsComp(node?.right?.operation)) {
+          if (needBracketsSum(node?.right?.operation)) {
             return `-\\left(${convertToMath(node.right!)})\\right`;
           } else {
             return `-${convertToMath(node.right!)}`;
           }
-        } else if (needBracketsComp(node?.left?.operation)) {
+        } else if (needBracketsSum(node?.left?.operation)) {
           return `${convertToMath(node.left!)}-\\left(${convertToMath(node.right!)})\\right`;
         } else {
           return `${convertToMath(node.left!)}-${convertToMath(node.right!)}`;

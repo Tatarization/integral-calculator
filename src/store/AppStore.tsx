@@ -12,9 +12,12 @@ import {localStorageGet} from '../utils/localStorage';
 
 export interface AppStoreState {
   darkMode: boolean;
+  isAuthenticated: boolean;
+  currentUser?: object | undefined;
 }
 const INITIAL_APP_STATE: AppStoreState = {
-  darkMode: true
+  darkMode: true,
+  isAuthenticated: false
 };
 
 type AppContextReturningType = [AppStoreState, Dispatch<any>];

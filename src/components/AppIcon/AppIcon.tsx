@@ -38,7 +38,8 @@ const ICONS: Record<string, ComponentType> = {
   login: PersonIcon,
   logout: ExitToAppIcon,
   notifications: NotificationsIcon,
-  learning: SchoolIcon
+  learning: SchoolIcon,
+  derivative: AccountCircle
 };
 
 interface Props {

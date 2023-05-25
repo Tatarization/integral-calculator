@@ -14,6 +14,9 @@ export const FUNCTIONS = [
   'arcctg'
 ];
 export const ALLOWED_ARGS = [
+  'x',
+  'y',
+  'z',
   'a',
   'b',
   'c',
@@ -35,10 +38,7 @@ export const ALLOWED_ARGS = [
   't',
   'u',
   'v',
-  'w',
-  'x',
-  'y',
-  'z'
+  'w'
 ];
 export const OPERATIONS = ['+', '-', '*', '/', '^'];
 export const CONSTANTS = ['pi', 'e', ''];

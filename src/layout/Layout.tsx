@@ -6,12 +6,13 @@ import {LinkToPage} from '../utils/types';
 import {SIDEBAR_WIDTH, TOPBAR_DESKTOP_HEIGHT} from './config';
 import {TopBar} from './TopBar/TopBar';
 import {SideBar} from './SideBar/SideBar';
+import {useIsAuthenticated} from '../hooks/auth';
 
 const TITLE_PRIVATE = 'Калькулятор Интегралов'; // Title for pages after authentication
 
 const SIDEBAR_ITEMS: Array<LinkToPage> = [
   {
-    title: 'Главная',
+    title: 'Калькулятор Интегралов',
     path: '/',
     icon: 'home'
   },
@@ -19,11 +20,6 @@ const SIDEBAR_ITEMS: Array<LinkToPage> = [
     title: 'Обучение',
     path: '/learning',
     icon: 'learning'
-  },
-  {
-    title: 'Дополнительная информация',
-    path: '/about',
-    icon: 'info'
   }
 ];
 
